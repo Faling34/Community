@@ -1,0 +1,22 @@
+command /build:
+    permission: team.build
+    trigger:
+        if {build.%player%} is not set or {build.%player%} is false:
+            set {build.%player%} to true
+            send "&aDu kannst jetzt bauen!"
+        else:
+            set {build.%player%} to false
+            send "&cDu kannst nicht mehr bauen!"
+
+on break:
+    if {build.%player%} is not set or {build.%player%} is false:
+        cancel event
+        send "&cDu darfst hier nicht bauen!" to player
+
+on place:
+    if {build.%player%} is not set or {build.%player%} is false:
+        cancel event
+        send "&cDu darfst hier nicht bauen!" to player
+
+
+## THANK YOU FOR USING MY SKRIPTS LEAVE A FEEDBACK ##
